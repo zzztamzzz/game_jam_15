@@ -7,6 +7,7 @@
 [node name="RootNode2D" type="Node2D"]
 
 [node name="World" type="Node2D" parent="."]
+position = Vector2(0, 1)
 
 [node name="Background" type="Sprite2D" parent="World"]
 
