@@ -1,4 +1,8 @@
-[gd_scene format=3 uid="uid://b4at5rhabamrb"]
+[gd_scene load_steps=3 format=3 uid="uid://b4at5rhabamrb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nlegl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_suky7"]
 
 [node name="RootNode2D" type="Node2D"]
 
@@ -8,6 +12,14 @@
 
 [node name="2DPlayer" type="CharacterBody2D" parent="World"]
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/2DPlayer"]
+position = Vector2(-26, -21)
+shape = SubResource("CapsuleShape2D_nlegl")
+
 [node name="2DEnemy" type="CharacterBody2D" parent="World"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/2DEnemy"]
+position = Vector2(176, -38)
+shape = SubResource("RectangleShape2D_suky7")
 
 [node name="Camera2D" type="Camera2D" parent="."]
