@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b4at5rhabamrb"]
+
+[node name="RootNode2D" type="Node2D"]
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="World"]
+
+[node name="2DPlayer" type="CharacterBody2D" parent="World"]
+
+[node name="2DEnemy" type="CharacterBody2D" parent="World"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
