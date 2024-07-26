@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://byd84jewx46dk"]
+
+[ext_resource type="PackedScene" uid="uid://fudelpco8kl2" path="res://tutorial/tut_scenes/player_tut.tscn" id="1_2kwn1"]
+[ext_resource type="PackedScene" uid="uid://bvx41i5ec3766" path="res://tutorial/tut_scenes/ground_tut.tscn" id="2_bsbsl"]
+[ext_resource type="PackedScene" uid="uid://ddeug8jroywr1" path="res://tutorial/tut_scenes/enemy_tut.tscn" id="3_wxtmf"]
+[ext_resource type="Texture2D" uid="uid://gkxqnwdf5bns" path="res://tutorial/sample_background/Night City Background Image 2 Madfireon.png" id="4_k8cbx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d6pei"]
+size = Vector2(20, 400)
+
+[node name="Main" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_2kwn1")]
+position = Vector2(303, 541)
+
+[node name="Ground" parent="." instance=ExtResource("2_bsbsl")]
+position = Vector2(1326, 633)
+scale = Vector2(89.8362, 1.59216)
+
+[node name="Enemy" parent="." instance=ExtResource("3_wxtmf")]
+position = Vector2(920, 570)
+
+[node name="BackWall" type="StaticBody2D" parent="."]
+position = Vector2(-5, 411)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackWall"]
+shape = SubResource("RectangleShape2D_d6pei")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, -2)
+motion_mirroring = Vector2(1950, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(638, 406)
+scale = Vector2(0.996024, 1.18757)
+texture = ExtResource("4_k8cbx")
