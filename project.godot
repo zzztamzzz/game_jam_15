@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ShadowsAlchemy"
-run/main_scene="res://tutorial/tut_scenes/main_tut.tscn"
+run/main_scene="res://Scenes/Main_Scene.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://Sprites/icon.svg"
 
