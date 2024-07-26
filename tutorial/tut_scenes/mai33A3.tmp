@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://byd84jewx46dk"]
+
+[ext_resource type="PackedScene" uid="uid://fudelpco8kl2" path="res://tutorial/tut_scenes/player_tut.tscn" id="1_2kwn1"]
+[ext_resource type="PackedScene" uid="uid://bvx41i5ec3766" path="res://tutorial/tut_scenes/ground_tut.tscn" id="2_bsbsl"]
+[ext_resource type="PackedScene" uid="uid://ddeug8jroywr1" path="res://tutorial/tut_scenes/enemy_tut.tscn" id="3_wxtmf"]
+
+[node name="Main" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_2kwn1")]
+position = Vector2(276, 259)
+
+[node name="Ground" parent="." instance=ExtResource("2_bsbsl")]
+position = Vector2(571, 625)
+
+[node name="Enemy" parent="." instance=ExtResource("3_wxtmf")]
+position = Vector2(920, 570)

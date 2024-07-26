@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://byd84jewx46dk"]
+
+[ext_resource type="PackedScene" uid="uid://fudelpco8kl2" path="res://tutorial/player_tut.tscn" id="1_2kwn1"]
+[ext_resource type="PackedScene" uid="uid://bvx41i5ec3766" path="res://tutorial/tut_ground.tscn" id="2_bsbsl"]
+
+[node name="Main" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_2kwn1")]
+position = Vector2(276, 259)
+
+[node name="Ground" parent="." instance=ExtResource("2_bsbsl")]
+position = Vector2(571, 625)
