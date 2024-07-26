@@ -4,10 +4,10 @@ extends CharacterBody2D
 @export var gravity = 30
 @export var jump_force = 700
 
-# Shooting variables
-var Bullet = preload("res://Scenes/Bullet.tscn") # Import the bullet scene
-@export var shoot_cooldown = 0.5
-var last_shot_time = 0
+## Shooting variables
+#var Bullet = preload("res://Scenes/Bullet.tscn") # Import the bullet scene
+#@export var shoot_cooldown = 0.5
+#var last_shot_time = 0
 
 func _physics_process(_delta):
 	# Vertical movement
@@ -30,18 +30,18 @@ func _physics_process(_delta):
 	elif horizontal_direction > 0:
 		$hablu.flip_h = false
 
-	# Shooting Logic
-	if Input.is_action_pressed("shoot"):
-		var current_time = Time.get_ticks_msec() / 1000
-		if current_time - last_shot_time > shoot_cooldown:
-			shoot()
-			last_shot_time = current_time
-
-			
 	move_and_slide()
-
-func shoot():
-	var bullet = Bullet.instance()
-	bullet.position = position + Vector2(16, 0) # Adjust this according to your game's needs
-	bullet.look_at(get_viewport().get_visible_rect().size / 2)
-	get_tree().root.add_child(bullet)
+	## Shooting Logic
+	#if Input.is_action_pressed("shoot"):
+		#var current_time = Time.get_ticks_msec() / 1000
+		#if current_time - last_shot_time > shoot_cooldown:
+			#shoot()
+			#last_shot_time = current_time
+#
+	#move_and_slide()
+#
+#func shoot():
+	#var bullet = Bullet.instance()
+	#bullet.position = position + Vector2(16, 0) # Adjust this according to your game's needs
+	#bullet.look_at(get_viewport().get_visible_rect().size / 2)
+	#get_tree().root.add_child(bullet)
