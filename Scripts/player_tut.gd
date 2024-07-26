@@ -3,9 +3,11 @@ extends CharacterBody2D
 @export var speed = 300 # for inspector access
 @export var gravity = 30
 @export var jump_force = 700
+@export var dash_force = 10000
+
 
 # Bullet
-var bullet = preload("res://tutorial/tut_scenes/bullet_tut.tscn")
+var bullet = preload("res://Scenes/Bullet_basic.tscn")
 var b_inst
 
 func _physics_process(_delta):
@@ -23,6 +25,8 @@ func _physics_process(_delta):
 	var horizontal_direction = Input.get_axis("moveLeft", "moveRight")
 	velocity.x = speed * horizontal_direction
 	
+	if Input.is_action_just_pressed("dash"):
+		velocity.x = horizontal_direction + dash_force
 	shoot()
 	move_and_slide()
 
