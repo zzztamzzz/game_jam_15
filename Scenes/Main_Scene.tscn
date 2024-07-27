@@ -30,7 +30,7 @@ shape = SubResource("RectangleShape2D_d6pei")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(0, -2)
-motion_mirroring = Vector2(1950, 0)
+motion_mirroring = Vector2(1275, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(638, 406)

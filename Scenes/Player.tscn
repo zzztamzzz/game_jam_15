@@ -77,3 +77,4 @@ position = Vector2(16, -3.5)
 position = Vector2(150, -75)
 limit_left = 0
 limit_top = 0
+limit_bottom = 0
