@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://byd84jewx46dk"]
+[gd_scene load_steps=5 format=3 uid="uid://byd84jewx46dk"]
 
 [ext_resource type="PackedScene" uid="uid://fudelpco8kl2" path="res://Scenes/Player.tscn" id="1_ew48u"]
 [ext_resource type="PackedScene" uid="uid://bvx41i5ec3766" path="res://Scenes/Ground_Template.tscn" id="2_lamht"]
-[ext_resource type="PackedScene" uid="uid://ddeug8jroywr1" path="res://Scenes/Enemy_Template.tscn" id="3_vjcfj"]
 [ext_resource type="Texture2D" uid="uid://gkxqnwdf5bns" path="res://Assets/sample_background/Night City Background Image 2 Madfireon.png" id="4_jmoja"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d6pei"]
@@ -10,19 +9,12 @@ size = Vector2(20, 400)
 
 [node name="Main" type="Node2D"]
 
-[node name="player" parent="." instance=ExtResource("1_ew48u")]
+[node name="Player" parent="." instance=ExtResource("1_ew48u")]
 position = Vector2(303, 541)
-speed = null
-gravity = null
-jump_force = null
-dash_force = null
 
 [node name="Ground" parent="." instance=ExtResource("2_lamht")]
 position = Vector2(1326, 633)
 scale = Vector2(89.8362, 1.59216)
-
-[node name="Enemy" parent="." instance=ExtResource("3_vjcfj")]
-position = Vector2(920, 570)
 
 [node name="BackWall" type="StaticBody2D" parent="."]
 position = Vector2(-5, 411)
