@@ -12,6 +12,10 @@ size = Vector2(20, 400)
 
 [node name="player" parent="." instance=ExtResource("1_ew48u")]
 position = Vector2(303, 541)
+speed = null
+gravity = null
+jump_force = null
+dash_force = null
 
 [node name="Ground" parent="." instance=ExtResource("2_lamht")]
 position = Vector2(1326, 633)

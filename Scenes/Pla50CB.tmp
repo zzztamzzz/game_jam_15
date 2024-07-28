@@ -59,6 +59,10 @@ size = Vector2(22, 34)
 [node name="Player_tuto" type="CharacterBody2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_cry7q")
+speed = null
+gravity = null
+jump_force = null
+dash_force = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_evgao")
