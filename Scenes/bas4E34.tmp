@@ -1,0 +1,79 @@
+[gd_scene load_steps=12 format=3 uid="uid://4h4ecrk24hwg"]
+
+[ext_resource type="Script" path="res://Scripts/Basic_Enemy.gd" id="1_syghx"]
+[ext_resource type="Texture2D" uid="uid://b78vgmq7yrkiv" path="res://Assets/TeamGunner_By_SecretHideout_060519/CHARACTER_SPRITES/Red/Gunner_Red_Run.png" id="2_bsikx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efm8u"]
+atlas = ExtResource("2_bsikx")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xr5l3"]
+atlas = ExtResource("2_bsikx")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_16if3"]
+atlas = ExtResource("2_bsikx")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6cmq"]
+atlas = ExtResource("2_bsikx")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fc3u3"]
+atlas = ExtResource("2_bsikx")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vkbj"]
+atlas = ExtResource("2_bsikx")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_inhsd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efm8u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xr5l3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_16if3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w6cmq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fc3u3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3vkbj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ftwrv"]
+size = Vector2(122.867, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3rwau"]
+size = Vector2(26, 35)
+
+[node name="Basic_Enemy" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_syghx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_inhsd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3.5)
+rotation = -3.14159
+scale = Vector2(0.211611, -1.33813)
+shape = SubResource("RectangleShape2D_ftwrv")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_3rwau")
