@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://byd84jewx46dk"]
+[gd_scene load_steps=6 format=3 uid="uid://byd84jewx46dk"]
 
 [ext_resource type="PackedScene" uid="uid://fudelpco8kl2" path="res://Scenes/Player.tscn" id="1_ew48u"]
 [ext_resource type="PackedScene" uid="uid://bvx41i5ec3766" path="res://Scenes/Ground_Template.tscn" id="2_lamht"]
+[ext_resource type="PackedScene" uid="uid://ddeug8jroywr1" path="res://Scenes/Enemy_Template.tscn" id="4_0po3s"]
 [ext_resource type="Texture2D" uid="uid://gkxqnwdf5bns" path="res://Assets/sample_background/Night City Background Image 2 Madfireon.png" id="4_jmoja"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d6pei"]
@@ -32,3 +33,6 @@ motion_mirroring = Vector2(1275, 0)
 position = Vector2(638, 406)
 scale = Vector2(0.996024, 1.18757)
 texture = ExtResource("4_jmoja")
+
+[node name="Enemy" parent="." instance=ExtResource("4_0po3s")]
+position = Vector2(1031, 543)
