@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var speed = 300
 @export var gravity = 20
 @export var jump_force = 700
-@export var dash_force = 1000  
+@export var dash_force = 1500
 @export var shoot_cooldown = 0.2
 @export var dash_duration = 0.6
 @export var dash_cooldown = 1.0
@@ -25,6 +25,20 @@ var aim_direction = Vector2(1, 0)  # Default to right
 @export var marker_offset_crouch = Vector2(10, 5)
 @export var marker_offset_up = Vector2(0, 10)
 @export var marker_offset_down = Vector2(0, -10)
+
+
+# Health temp
+var health = 3
+
+func _process(delta):
+	if Input.is_action_just_pressed("ui_accept"):
+		health -= 1
+		print(health)
+		
+	if health <= 0:
+		queue_free()
+		
+
 
 func _ready():
 	update_marker_position()
@@ -86,12 +100,9 @@ func handle_crouch():
 func handle_aim():
 	if Input.is_action_pressed("lookUp"):
 		aim_direction = Vector2(0, -1)
-		animated_sprite.rotation_degrees = -90 if facing_right else 90  # Rotate sprite to face upwards
 	elif Input.is_action_pressed("lookDown") and !is_on_floor():
 		aim_direction = Vector2(0, 1)
-		animated_sprite.rotation_degrees = 90 if facing_right else -90  # Rotate sprite to face downwards
 	else:
-		animated_sprite.rotation_degrees = 0  # Reset rotation
 		aim_direction = Vector2(1, 0) if facing_right else Vector2(-1, 0)
 
 func shoot():
@@ -107,7 +118,9 @@ func shoot():
 func update_animation():
 	if is_dashing:
 		return  # Skip updating the animation if dashing
-	if not is_on_floor():
+	if Input.is_action_pressed("lookUp"):
+		animated_sprite.play("lookUp")
+	elif not is_on_floor():
 		animated_sprite.play("jump")
 	elif Input.is_action_pressed("crouch") and is_on_floor():
 		animated_sprite.play("crouch")

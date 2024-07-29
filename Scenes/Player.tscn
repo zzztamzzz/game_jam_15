@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://fudelpco8kl2"]
+[gd_scene load_steps=26 format=3 uid="uid://fudelpco8kl2"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_cry7q"]
 [ext_resource type="Texture2D" uid="uid://cyecsajmrywnk" path="res://GameJam Assets/Mc/Dash/1.png" id="2_uf4q3"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://drc1f17lj87dj" path="res://GameJam Assets/Mc/iDLE/BackView.png" id="20_qcj8u"]
 [ext_resource type="Texture2D" uid="uid://deapdcjhpdudh" path="res://GameJam Assets/Mc/Sprint/2.png" id="20_tlrng"]
 [ext_resource type="Texture2D" uid="uid://c86i23n7bgju7" path="res://GameJam Assets/Mc/Sprint/3.png" id="21_fg20h"]
+[ext_resource type="Script" path="res://Scripts/Health.gd" id="23_8dy2c"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_evgao"]
 animations = [{
@@ -136,8 +137,7 @@ script = ExtResource("1_cry7q")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.3, 0.296055)
 sprite_frames = SubResource("SpriteFrames_evgao")
-animation = &"run"
-frame_progress = 0.536332
+animation = &"dashing"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1.11007, 1.41975)
@@ -153,3 +153,11 @@ limit_top = 0
 limit_bottom = 10
 limit_smoothed = true
 editor_draw_limits = true
+
+[node name="Health" type="Label" parent="."]
+offset_left = -19.0
+offset_top = -47.5
+offset_right = 21.0
+offset_bottom = -24.5
+theme_override_font_sizes/font_size = 15
+script = ExtResource("23_8dy2c")
