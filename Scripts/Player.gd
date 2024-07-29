@@ -8,6 +8,9 @@ extends CharacterBody2D
 @export var dash_duration = 0.6
 @export var dash_cooldown = 1.0
 
+@export var max_lives = 3
+var lives = max_lives
+
 var bullet = preload("res://Scenes/Bullet_basic.tscn")
 var can_shoot = true
 var can_dash = true
@@ -26,20 +29,6 @@ var aim_direction = Vector2(1, 0)  # Default to right
 @export var marker_offset_up = Vector2(0, 10)
 @export var marker_offset_down = Vector2(0, -10)
 
-
-# Health temp
-var health = 3
-
-func _process(delta):
-	if Input.is_action_just_pressed("ui_accept"):
-		health -= 1
-		print(health)
-		
-	if health <= 0:
-		queue_free()
-		
-
-
 func _ready():
 	update_marker_position()
 
@@ -54,6 +43,8 @@ func _physics_process(_delta):
 		shoot()
 	move_and_slide()
 	update_animation()
+	if lives <= 0:
+		die()
 
 func apply_gravity():
 	if !is_on_floor() and !is_dashing:
@@ -138,3 +129,17 @@ func update_marker_position():
 		marker.position = marker_offset_crouch
 	else:
 		marker.position = marker_offset_right if facing_right else marker_offset_left
+
+func take_damage():
+	lives -= 1
+	if lives < 0:
+		lives = 0
+
+func gain_life():
+	lives += 1
+	if lives > max_lives:
+		lives = max_lives
+
+func die():
+	# Handle player death (e.g., play animation, restart level, etc.)
+	queue_free()

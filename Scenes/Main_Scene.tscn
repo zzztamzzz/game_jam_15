@@ -1,14 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://byd84jewx46dk"]
+[gd_scene load_steps=6 format=3 uid="uid://byd84jewx46dk"]
 
 [ext_resource type="PackedScene" uid="uid://fudelpco8kl2" path="res://Scenes/Player.tscn" id="1_ew48u"]
 [ext_resource type="PackedScene" uid="uid://bvx41i5ec3766" path="res://Scenes/Floor.tscn" id="2_lamht"]
 [ext_resource type="Texture2D" uid="uid://gkxqnwdf5bns" path="res://Assets/sample_background/Night City Background Image 2 Madfireon.png" id="4_jmoja"]
+[ext_resource type="PackedScene" uid="uid://b53e7mlrhngq" path="res://Scenes/enemy.tscn" id="4_p0hfu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d6pei"]
 size = Vector2(20, 400)
 
 [node name="Main" type="Node2D"]
-position = Vector2(2, 21)
+position = Vector2(-16, -644)
 
 [node name="Ground" parent="." instance=ExtResource("2_lamht")]
 position = Vector2(1326, 633)
@@ -23,7 +24,7 @@ shape = SubResource("RectangleShape2D_d6pei")
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(2, 19)
+position = Vector2(-16, -646)
 motion_mirroring = Vector2(1275, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
@@ -33,3 +34,6 @@ texture = ExtResource("4_jmoja")
 
 [node name="Player" parent="." instance=ExtResource("1_ew48u")]
 position = Vector2(76, 549)
+
+[node name="Enemy" parent="." instance=ExtResource("4_p0hfu")]
+position = Vector2(559, 564)
