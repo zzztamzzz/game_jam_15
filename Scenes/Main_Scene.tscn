@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://byd84jewx46dk"]
 
 [ext_resource type="PackedScene" uid="uid://fudelpco8kl2" path="res://Scenes/Player.tscn" id="1_ew48u"]
-[ext_resource type="PackedScene" uid="uid://bvx41i5ec3766" path="res://Scenes/Ground_Template.tscn" id="2_lamht"]
+[ext_resource type="PackedScene" uid="uid://bvx41i5ec3766" path="res://Scenes/Floor.tscn" id="2_lamht"]
 [ext_resource type="Texture2D" uid="uid://gkxqnwdf5bns" path="res://Assets/sample_background/Night City Background Image 2 Madfireon.png" id="4_jmoja"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d6pei"]

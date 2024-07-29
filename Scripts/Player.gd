@@ -3,11 +3,15 @@ extends CharacterBody2D
 @export var speed = 300
 @export var gravity = 20
 @export var jump_force = 700
-@export var dash_force = 10000
+@export var dash_force = 1000  
 @export var shoot_cooldown = 0.2
+@export var dash_duration = 0.6
+@export var dash_cooldown = 1.0
 
 var bullet = preload("res://Scenes/Bullet_basic.tscn")
 var can_shoot = true
+var can_dash = true
+var is_dashing = false
 var facing_right = true
 var horizontal_direction = 0
 var aim_direction = Vector2(1, 0)  # Default to right
@@ -38,7 +42,7 @@ func _physics_process(_delta):
 	update_animation()
 
 func apply_gravity():
-	if !is_on_floor():
+	if !is_on_floor() and !is_dashing:
 		velocity.y += gravity
 		if velocity.y > 1000:
 			velocity.y = 1000
@@ -50,18 +54,27 @@ func handle_jump():
 		velocity.y = -jump_force
 
 func handle_movement():
-	horizontal_direction = Input.get_axis("moveLeft", "moveRight")
-	if horizontal_direction != 0:
-		velocity.x = speed * horizontal_direction
-		facing_right = horizontal_direction > 0
-		animated_sprite.flip_h = not facing_right
-		update_marker_position()
-	else:
-		velocity.x = 0  # Stop the player when no keys are pressed
+	if !is_dashing:
+		horizontal_direction = Input.get_axis("moveLeft", "moveRight")
+		if horizontal_direction != 0:
+			velocity.x = speed * horizontal_direction
+			facing_right = horizontal_direction > 0
+			animated_sprite.flip_h = not facing_right
+			update_marker_position()
+		else:
+			velocity.x = 0  # Stop the player when no keys are pressed
 
 func handle_dash():
-	if Input.is_action_just_pressed("dash"):
-		velocity.x += horizontal_direction * dash_force
+	if Input.is_action_just_pressed("dash") and can_dash:
+		is_dashing = true
+		can_dash = false
+		animated_sprite.play("dashing")
+		velocity.x = (dash_force if facing_right else -dash_force)
+		await get_tree().create_timer(dash_duration).timeout
+		is_dashing = false
+		velocity.x = 0
+		await get_tree().create_timer(dash_cooldown).timeout
+		can_dash = true
 
 func handle_crouch():
 	if Input.is_action_pressed("crouch") and is_on_floor():
@@ -81,7 +94,6 @@ func handle_aim():
 		animated_sprite.rotation_degrees = 0  # Reset rotation
 		aim_direction = Vector2(1, 0) if facing_right else Vector2(-1, 0)
 
-
 func shoot():
 	if Input.is_action_just_pressed("shoot"):
 		can_shoot = false
@@ -93,6 +105,8 @@ func shoot():
 		can_shoot = true
 
 func update_animation():
+	if is_dashing:
+		return  # Skip updating the animation if dashing
 	if not is_on_floor():
 		animated_sprite.play("jump")
 	elif Input.is_action_pressed("crouch") and is_on_floor():
@@ -111,4 +125,3 @@ func update_marker_position():
 		marker.position = marker_offset_crouch
 	else:
 		marker.position = marker_offset_right if facing_right else marker_offset_left
-
