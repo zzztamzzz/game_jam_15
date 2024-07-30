@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://24v85s7x6cmy"
-path="res://.godot/imported/pngimg.com - dot_PNG4_resize.png-78d3402d76cba91d909e436251e87fde.ctex"
+uid="uid://lvvqosse5j6q"
+path="res://.godot/imported/Kick1.png-bae71bff3cb4fb8d967e7169db06ff13.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Bullet/pngimg.com - dot_PNG4_resize.png"
-dest_files=["res://.godot/imported/pngimg.com - dot_PNG4_resize.png-78d3402d76cba91d909e436251e87fde.ctex"]
+source_file="res://Assets/Models/New Spries #1/Kick/Kick1.png"
+dest_files=["res://.godot/imported/Kick1.png-bae71bff3cb4fb8d967e7169db06ff13.ctex"]
 
 [params]
 
