@@ -1,5 +1,7 @@
 Gunner Animated Character: https://secrethideout.itch.io/team-wars-platformer-battle
 
-Backdrops game backgrounds: https://14collective.itch.io/pixel-art-background-backdrops-jungles-cities-and-underwater
-Modern City Backgrounds: https://free-game-assets.itch.io/free-city-backgrounds-pixel-art
-Night City Background: https://swapnilrane24.itch.io/night-city-background
+Backdrops game backgrounds(Backdrops): https://14collective.itch.io/pixel-art-background-backdrops-jungles-cities-and-underwater
+Modern City Backgrounds(free-city-backgrounds): https://free-game-assets.itch.io/free-city-backgrounds-pixel-art
+Free Cyberpunk Backgrounds Pixel Art: https://free-game-assets.itch.io/free-scrolling-city-backgrounds-pixel-art
+Free Sky Backgrounds: https://free-game-assets.itch.io/free-sky-with-clouds-background-pixel-art-set
+Night City Background(sample_background): https://swapnilrane24.itch.io/night-city-background
