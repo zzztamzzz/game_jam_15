@@ -1,6 +1,6 @@
 [gd_scene load_steps=45 format=3 uid="uid://fudelpco8kl2"]
 
-[ext_resource type="Script" path="res://Scripts/player.gd" id="1_cry7q"]
+[ext_resource type="Script" path="res://Scripts/player/player_base_bullet.gd" id="1_cry7q"]
 [ext_resource type="Texture2D" uid="uid://dsuuo3jpya30b" path="res://Sprites/Models/MainCharacter/iDLE/crouched.png" id="2_xifi6"]
 [ext_resource type="Texture2D" uid="uid://ckfcthnvjujnu" path="res://Sprites/Models/MainCharacter/Dash/1.png" id="3_bdfwf"]
 [ext_resource type="Texture2D" uid="uid://dr83gjonci4d6" path="res://Sprites/Models/MainCharacter/Dash/2.png" id="4_6rpuu"]
@@ -224,7 +224,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g8l37"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gv8o"]
+size = Vector2(20, 29.37)
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(2, 2)
@@ -233,15 +234,14 @@ script = ExtResource("1_cry7q")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_y6570")
-animation = &"death"
-frame_progress = 0.915284
+animation = &"idling"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1.11007, 1.41975)
-shape = SubResource("CapsuleShape2D_g8l37")
+shape = SubResource("RectangleShape2D_3gv8o")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(10, -5)
+position = Vector2(10, -12.5)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-4.5, 1.5)

@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://dmw7s4cma3ygk"]
+
+[ext_resource type="Texture2D" uid="uid://dhgbgdf2erfip" path="res://Sprites/Models/Helicopter/HelicopterBullet1.png" id="1_h4knu"]
+[ext_resource type="Script" path="res://Scenes/enemies/damage/heli_bullet.gd" id="1_owmnq"]
+[ext_resource type="Texture2D" uid="uid://cmp68y2xqtw10" path="res://Sprites/Models/Helicopter/HelicopterBullet2.png" id="2_rnbyv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p0v8g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_h4knu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_rnbyv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hpr7u"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_owmnq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-8, -4)
+rotation = -0.460876
+sprite_frames = SubResource("SpriteFrames_p0v8g")
+frame_progress = 0.123932
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(3.19747, 1.36657)
+shape = SubResource("CapsuleShape2D_hpr7u")
+
+[node name="heli_bullet" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="heli_bullet"]
+scale = Vector2(3.19747, 1.36657)
+shape = SubResource("CapsuleShape2D_hpr7u")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -1,18 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://byd84jewx46dk"]
+[gd_scene load_steps=9 format=3 uid="uid://byd84jewx46dk"]
 
-[ext_resource type="PackedScene" uid="uid://fudelpco8kl2" path="res://Scenes/player/Player.tscn" id="1_ew48u"]
-[ext_resource type="PackedScene" uid="uid://bvx41i5ec3766" path="res://Scenes/environment/ground.tscn" id="2_lamht"]
+[ext_resource type="PackedScene" uid="uid://fudelpco8kl2" path="res://Scenes/player/player.tscn" id="1_ew48u"]
+[ext_resource type="Script" path="res://Scenes/levels/Main_Scene.gd" id="1_wo3eo"]
+[ext_resource type="PackedScene" uid="uid://bvx41i5ec3766" path="res://Scenes/environment/solid.tscn" id="2_lamht"]
 [ext_resource type="Texture2D" uid="uid://gkxqnwdf5bns" path="res://Assets/sample_background/Night City Background Image 2 Madfireon.png" id="4_jmoja"]
 [ext_resource type="PackedScene" uid="uid://b53e7mlrhngq" path="res://Scenes/enemies/enemy.tscn" id="4_p0hfu"]
+[ext_resource type="PackedScene" uid="uid://c7k50443ht0kh" path="res://Scenes/enemies/dragon.tscn" id="5_miogr"]
+[ext_resource type="PackedScene" uid="uid://cuvuy3t7tditb" path="res://Scenes/enemies/helicopter.tscn" id="6_of0mm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d6pei"]
 size = Vector2(20, 400)
 
 [node name="Main" type="Node2D"]
-position = Vector2(4, 32)
+scale = Vector2(0.999697, 1)
+script = ExtResource("1_wo3eo")
 
 [node name="Ground" parent="." instance=ExtResource("2_lamht")]
-position = Vector2(1326, 633)
+position = Vector2(20710, 637)
 scale = Vector2(89.8362, 1.59216)
 
 [node name="BackWall" type="StaticBody2D" parent="."]
@@ -24,7 +28,6 @@ shape = SubResource("RectangleShape2D_d6pei")
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(4, 30)
 motion_mirroring = Vector2(1275, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
@@ -35,5 +38,61 @@ texture = ExtResource("4_jmoja")
 [node name="Player" parent="." instance=ExtResource("1_ew48u")]
 position = Vector2(76, 549)
 
-[node name="Enemy" parent="." instance=ExtResource("4_p0hfu")]
-position = Vector2(559, 564)
+[node name="Dragon" parent="." instance=ExtResource("5_miogr")]
+position = Vector2(16668, 510)
+
+[node name="Helicopter" parent="." instance=ExtResource("6_of0mm")]
+position = Vector2(21583, 325)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("4_p0hfu")]
+position = Vector2(567, 580)
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource("4_p0hfu")]
+position = Vector2(735.051, 580)
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource("4_p0hfu")]
+position = Vector2(903.102, 580)
+
+[node name="Enemy4" parent="Enemies" instance=ExtResource("4_p0hfu")]
+position = Vector2(1086.33, 580)
+
+[node name="Enemy5" parent="Enemies" instance=ExtResource("4_p0hfu")]
+position = Vector2(1295.22, 580)
+
+[node name="Enemy6" parent="Enemies" instance=ExtResource("4_p0hfu")]
+position = Vector2(2559.6, 420)
+
+[node name="Enemy7" parent="Enemies" instance=ExtResource("4_p0hfu")]
+position = Vector2(2399.56, 420)
+
+[node name="Enemy8" parent="Enemies" instance=ExtResource("4_p0hfu")]
+position = Vector2(2287.52, 420)
+
+[node name="Enemy9" parent="Enemies" instance=ExtResource("4_p0hfu")]
+position = Vector2(2111.47, 420)
+
+[node name="Enemy10" parent="Enemies" instance=ExtResource("4_p0hfu")]
+position = Vector2(1943.42, 420)
+
+[node name="Enemy11" parent="Enemies" instance=ExtResource("4_p0hfu")]
+position = Vector2(1847.39, 572)
+
+[node name="Enemy12" parent="Enemies" instance=ExtResource("4_p0hfu")]
+position = Vector2(2575.61, 572)
+
+[node name="Enemy13" parent="Enemies" instance=ExtResource("4_p0hfu")]
+position = Vector2(3119.77, 572)
+
+[node name="Enemy14" parent="Enemies" instance=ExtResource("4_p0hfu")]
+position = Vector2(3279.82, 572)
+
+[node name="Enemy15" parent="Enemies" instance=ExtResource("4_p0hfu")]
+position = Vector2(2855.69, 572)
+
+[node name="Pause" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+
+[connection signal="pressed" from="Pause" to="." method="_on_pause_pressed"]

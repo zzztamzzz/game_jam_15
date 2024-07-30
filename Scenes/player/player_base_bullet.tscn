@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://dk3rwvoi52suh"]
 
 [ext_resource type="Texture2D" uid="uid://cbjryg71057s2" path="res://Sprites/Models/Weapons/Guns/Bullet.png" id="1_bujnw"]
-[ext_resource type="Script" path="res://Scripts/bullet.gd" id="2_06xu3"]
+[ext_resource type="Script" path="res://Scripts/player/bullet.gd" id="2_1k4xr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7afhv"]
 
 [node name="Bullet" type="Sprite2D"]
 texture = ExtResource("1_bujnw")
-script = ExtResource("2_06xu3")
+script = ExtResource("2_1k4xr")
 
 [node name="Area2D" type="Area2D" parent="."]
 scale = Vector2(0.647312, 0.33504)
