@@ -4,8 +4,7 @@ extends Sprite2D
 var direction = Vector2.ZERO
 
 func _ready():
-	scale = Vector2(0.5, 0.5)
-	# Ensure the bullet direction is normalized
+	scale = Vector2(0.5, 0.5) # fixed bullet size
 	direction = direction.normalized()
 
 func _physics_process(delta):

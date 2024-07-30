@@ -29,13 +29,13 @@ rotation = -0.460876
 sprite_frames = SubResource("SpriteFrames_p0v8g")
 frame_progress = 0.123932
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(3.19747, 1.36657)
-shape = SubResource("CapsuleShape2D_hpr7u")
-
 [node name="heli_bullet" type="Area2D" parent="."]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="heli_bullet"]
+scale = Vector2(3.19747, 1.36657)
+shape = SubResource("CapsuleShape2D_hpr7u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="heli_bullet"]
 scale = Vector2(3.19747, 1.36657)
 shape = SubResource("CapsuleShape2D_hpr7u")
 

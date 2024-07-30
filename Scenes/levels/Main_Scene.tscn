@@ -1,26 +1,55 @@
-[gd_scene load_steps=8 format=3 uid="uid://byd84jewx46dk"]
+[gd_scene load_steps=15 format=3 uid="uid://byd84jewx46dk"]
 
+[ext_resource type="Script" path="res://Scenes/levels/Main_Scene.gd" id="1_3cfv0"]
 [ext_resource type="PackedScene" uid="uid://fudelpco8kl2" path="res://Scenes/player/player.tscn" id="1_ew48u"]
 [ext_resource type="PackedScene" uid="uid://bvx41i5ec3766" path="res://Scenes/environment/solid.tscn" id="2_lamht"]
 [ext_resource type="Texture2D" uid="uid://gkxqnwdf5bns" path="res://Assets/sample_background/Night City Background Image 2 Madfireon.png" id="4_jmoja"]
 [ext_resource type="PackedScene" uid="uid://b53e7mlrhngq" path="res://Scenes/enemies/enemy.tscn" id="4_p0hfu"]
+[ext_resource type="PackedScene" uid="uid://cupum186bpfhd" path="res://Scenes/ui/pause_menu.tscn" id="5_3klmo"]
 [ext_resource type="PackedScene" uid="uid://c7k50443ht0kh" path="res://Scenes/enemies/dragon.tscn" id="5_miogr"]
 [ext_resource type="PackedScene" uid="uid://cuvuy3t7tditb" path="res://Scenes/enemies/helicopter.tscn" id="6_of0mm"]
+[ext_resource type="Texture2D" uid="uid://ba5pbf053r6wl" path="res://Sprites/Models/ShadowOrb/Orbanim1.png" id="9_sikbu"]
+[ext_resource type="Texture2D" uid="uid://1hd4sn6b06qj" path="res://Sprites/Models/ShadowOrb/Orbanim2.png" id="10_61kyp"]
+[ext_resource type="Texture2D" uid="uid://ehdsctwyyk04" path="res://Sprites/Models/ShadowOrb/Orbanim3.png" id="11_pcabj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d6pei"]
 size = Vector2(20, 400)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_eoyhx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_sikbu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_61kyp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_pcabj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cyfvb"]
+
 [node name="Main" type="Node2D"]
 scale = Vector2(0.999697, 1)
+script = ExtResource("1_3cfv0")
 
 [node name="Ground" parent="." instance=ExtResource("2_lamht")]
-position = Vector2(20710, 637)
+position = Vector2(20710.3, 634)
 scale = Vector2(89.8362, 1.59216)
 
 [node name="BackWall" type="StaticBody2D" parent="."]
 position = Vector2(-5, 411)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BackWall"]
+shape = SubResource("RectangleShape2D_d6pei")
+
+[node name="No Further Bruv" type="CollisionShape2D" parent="BackWall"]
+position = Vector2(26784.1, -11)
 shape = SubResource("RectangleShape2D_d6pei")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -34,13 +63,20 @@ scale = Vector2(0.996024, 1.18757)
 texture = ExtResource("4_jmoja")
 
 [node name="Player" parent="." instance=ExtResource("1_ew48u")]
-position = Vector2(76, 549)
+position = Vector2(123.037, 538)
+
+[node name="PauseMenu" parent="Player" instance=ExtResource("5_3klmo")]
+visible = false
+offset_left = -58.5062
+offset_top = -101.0
+offset_right = -58.5062
+offset_bottom = -101.0
 
 [node name="Dragon" parent="." instance=ExtResource("5_miogr")]
 position = Vector2(16668, 510)
 
 [node name="Helicopter" parent="." instance=ExtResource("6_of0mm")]
-position = Vector2(21583, 325)
+position = Vector2(23584.1, 204)
 
 [node name="Enemies" type="Node2D" parent="."]
 
@@ -89,8 +125,16 @@ position = Vector2(3279.82, 572)
 [node name="Enemy15" parent="Enemies" instance=ExtResource("4_p0hfu")]
 position = Vector2(2855.69, 572)
 
-[node name="Pause" type="Button" parent="."]
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="ShadowOrb" type="AnimatedSprite2D" parent="."]
+position = Vector2(25382.7, 504)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_eoyhx")
+frame_progress = 0.709493
 
-[connection signal="pressed" from="Pause" to="." method="_on_pause_pressed"]
+[node name="Area2D" type="Area2D" parent="ShadowOrb"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShadowOrb/Area2D"]
+scale = Vector2(1.98784, 2.00535)
+shape = SubResource("CircleShape2D_cyfvb")
+
+[connection signal="area_entered" from="ShadowOrb/Area2D" to="." method="_on_area_2d_area_entered"]

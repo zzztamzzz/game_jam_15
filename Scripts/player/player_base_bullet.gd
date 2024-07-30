@@ -17,12 +17,11 @@ var can_dash = true
 var is_dashing = false
 var facing_right = true
 var horizontal_direction = 0
-var aim_direction = Vector2(1, 0)  # Default to right
+var aim_direction = Vector2(1, 0)
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var marker = $Marker2D
 
-# Positions for the Marker2D
 @export var marker_offset_right = Vector2(10, -6)
 @export var marker_offset_left = Vector2(-10, -6)
 @export var marker_offset_crouch = Vector2(10, 8)
@@ -67,7 +66,7 @@ func handle_movement():
 			animated_sprite.flip_h = not facing_right
 			update_marker_position()
 		else:
-			velocity.x = 0  # Stop the player when no keys are pressed
+			velocity.x = 0
 
 func handle_dash():
 	if Input.is_action_just_pressed("dash") and can_dash:
@@ -84,9 +83,9 @@ func handle_dash():
 func handle_crouch():
 	if Input.is_action_pressed("crouch") and is_on_floor():
 		animated_sprite.play("crouching")
-		update_marker_position()  # Update marker position when crouched
+		update_marker_position()
 	else:
-		update_marker_position()  # Update marker position when not crouched
+		update_marker_position()
 
 func handle_aim():
 	if Input.is_action_pressed("lookUp"):
@@ -108,7 +107,7 @@ func shoot():
 
 func update_animation():
 	if is_dashing:
-		return  # Skip updating the animation if dashing
+		return
 	if Input.is_action_pressed("lookUp"):
 		animated_sprite.play("lookingUp")
 	elif not is_on_floor():
@@ -131,5 +130,4 @@ func update_marker_position():
 		marker.position = marker_offset_right if facing_right else marker_offset_left
 
 func die():
-	# Handle player death (e.g., play animation, restart level, etc.)
 	queue_free()
