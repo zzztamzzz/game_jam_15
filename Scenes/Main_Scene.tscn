@@ -9,7 +9,7 @@
 size = Vector2(20, 400)
 
 [node name="Main" type="Node2D"]
-position = Vector2(-16, -644)
+position = Vector2(4, 32)
 
 [node name="Ground" parent="." instance=ExtResource("2_lamht")]
 position = Vector2(1326, 633)
@@ -24,7 +24,7 @@ shape = SubResource("RectangleShape2D_d6pei")
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(-16, -646)
+position = Vector2(4, 30)
 motion_mirroring = Vector2(1275, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
