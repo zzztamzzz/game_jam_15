@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://byd84jewx46dk"]
+[gd_scene load_steps=8 format=3 uid="uid://byd84jewx46dk"]
 
 [ext_resource type="PackedScene" uid="uid://fudelpco8kl2" path="res://Scenes/player/player.tscn" id="1_ew48u"]
-[ext_resource type="Script" path="res://Scenes/levels/Main_Scene.gd" id="1_wo3eo"]
 [ext_resource type="PackedScene" uid="uid://bvx41i5ec3766" path="res://Scenes/environment/solid.tscn" id="2_lamht"]
 [ext_resource type="Texture2D" uid="uid://gkxqnwdf5bns" path="res://Assets/sample_background/Night City Background Image 2 Madfireon.png" id="4_jmoja"]
 [ext_resource type="PackedScene" uid="uid://b53e7mlrhngq" path="res://Scenes/enemies/enemy.tscn" id="4_p0hfu"]
@@ -13,7 +12,6 @@ size = Vector2(20, 400)
 
 [node name="Main" type="Node2D"]
 scale = Vector2(0.999697, 1)
-script = ExtResource("1_wo3eo")
 
 [node name="Ground" parent="." instance=ExtResource("2_lamht")]
 position = Vector2(20710, 637)
