@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://byd84jewx46dk"]
+
+[ext_resource type="PackedScene" uid="uid://fudelpco8kl2" path="res://Scenes/Player.tscn" id="1_ew48u"]
+[ext_resource type="PackedScene" uid="uid://bvx41i5ec3766" path="res://Scenes/Ground_Template.tscn" id="2_lamht"]
+[ext_resource type="PackedScene" uid="uid://ddeug8jroywr1" path="res://Scenes/Enemy_Template.tscn" id="4_0po3s"]
+[ext_resource type="Texture2D" uid="uid://gkxqnwdf5bns" path="res://Assets/sample_background/Night City Background Image 2 Madfireon.png" id="4_jmoja"]
+[ext_resource type="PackedScene" uid="uid://4h4ecrk24hwg" path="res://Scenes/basic_enemy.tscn" id="5_rv3q7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d6pei"]
+size = Vector2(20, 400)
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_ew48u")]
+position = Vector2(303, 541)
+
+[node name="Ground" parent="." instance=ExtResource("2_lamht")]
+position = Vector2(1326, 633)
+scale = Vector2(89.8362, 1.59216)
+
+[node name="BackWall" type="StaticBody2D" parent="."]
+position = Vector2(-5, 411)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackWall"]
+shape = SubResource("RectangleShape2D_d6pei")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, -2)
+motion_mirroring = Vector2(1275, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(638, 406)
+scale = Vector2(0.996024, 1.18757)
+texture = ExtResource("4_jmoja")
+
+[node name="Enemy" parent="." instance=ExtResource("4_0po3s")]
+visible = false
+position = Vector2(1031, 543)
+
+[node name="Basic_Enemy" parent="." instance=ExtResource("5_rv3q7")]
+position = Vector2(796, 555)
