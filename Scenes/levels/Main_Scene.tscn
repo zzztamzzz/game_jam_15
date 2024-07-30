@@ -63,7 +63,7 @@ scale = Vector2(0.996024, 1.18757)
 texture = ExtResource("4_jmoja")
 
 [node name="Player" parent="." instance=ExtResource("1_ew48u")]
-position = Vector2(123.037, 538)
+position = Vector2(84.0254, 506)
 
 [node name="PauseMenu" parent="Player" instance=ExtResource("5_3klmo")]
 visible = false

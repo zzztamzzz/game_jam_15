@@ -19,4 +19,6 @@ func pauseMenu():
 	paused = !paused
 
 func _on_area_2d_area_entered(area):
-	get_tree().change_scene_to_file("res://Scenes/ui/game_over.tscn")
+	#get_tree().change_scene_to_file("res://Scenes/ui/game_over.tscn")
+	get_tree().call_deferred("change_scene_to_file", "res://Scenes/ui/game_over.tscn")
+	
