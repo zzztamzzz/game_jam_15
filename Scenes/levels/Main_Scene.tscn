@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://byd84jewx46dk"]
 
-[ext_resource type="PackedScene" uid="uid://fudelpco8kl2" path="res://Scenes/Player.tscn" id="1_ew48u"]
-[ext_resource type="PackedScene" uid="uid://bvx41i5ec3766" path="res://Scenes/Floor.tscn" id="2_lamht"]
+[ext_resource type="PackedScene" uid="uid://fudelpco8kl2" path="res://Scenes/player/Player.tscn" id="1_ew48u"]
+[ext_resource type="PackedScene" uid="uid://bvx41i5ec3766" path="res://Scenes/environment/ground.tscn" id="2_lamht"]
 [ext_resource type="Texture2D" uid="uid://gkxqnwdf5bns" path="res://Assets/sample_background/Night City Background Image 2 Madfireon.png" id="4_jmoja"]
-[ext_resource type="PackedScene" uid="uid://b53e7mlrhngq" path="res://Scenes/enemy.tscn" id="4_p0hfu"]
+[ext_resource type="PackedScene" uid="uid://b53e7mlrhngq" path="res://Scenes/enemies/enemy.tscn" id="4_p0hfu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d6pei"]
 size = Vector2(20, 400)

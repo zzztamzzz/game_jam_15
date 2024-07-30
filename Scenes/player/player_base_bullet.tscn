@@ -1,23 +1,22 @@
 [gd_scene load_steps=4 format=3 uid="uid://dk3rwvoi52suh"]
 
-[ext_resource type="Script" path="res://Scripts/Bullet.gd" id="2_db1ap"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_m3nma"]
-load_path = "res://.godot/imported/dot.png-d7cedbb712cb19bd962836f68741d80f.ctex"
+[ext_resource type="Texture2D" uid="uid://cbjryg71057s2" path="res://Sprites/Models/Weapons/Guns/Bullet.png" id="1_bujnw"]
+[ext_resource type="Script" path="res://Scripts/bullet.gd" id="2_06xu3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7afhv"]
 
 [node name="Bullet" type="Sprite2D"]
-scale = Vector2(0.2, 0.2)
-texture = SubResource("CompressedTexture2D_m3nma")
-script = ExtResource("2_db1ap")
+texture = ExtResource("1_bujnw")
+script = ExtResource("2_06xu3")
 
 [node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(0.647312, 0.33504)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 scale = Vector2(1.20001, 1.2)
 shape = SubResource("CircleShape2D_7afhv")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(0.804373, 0.427834)
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

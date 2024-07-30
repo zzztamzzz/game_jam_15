@@ -11,7 +11,7 @@ extends CharacterBody2D
 @export var max_lives = 3
 var lives = max_lives
 
-var bullet = preload("res://Scenes/Bullet_basic.tscn")
+var bullet = preload("res://Scenes/player/player_base_bullet.tscn")
 var can_shoot = true
 var can_dash = true
 var is_dashing = false

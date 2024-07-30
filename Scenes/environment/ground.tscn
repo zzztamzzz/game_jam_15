@@ -10,7 +10,6 @@ position = Vector2(580, 22)
 scale = Vector2(38.6762, 1.59216)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
 texture = ExtResource("1_2eqvg")
 
 [node name="Ground" type="StaticBody2D" parent="."]
