@@ -83,7 +83,7 @@ func handle_dash():
 
 func handle_crouch():
 	if Input.is_action_pressed("crouch") and is_on_floor():
-		animated_sprite.play("crouch")
+		animated_sprite.play("crouching")
 		update_marker_position()  # Update marker position when crouched
 	else:
 		update_marker_position()  # Update marker position when not crouched
@@ -110,15 +110,15 @@ func update_animation():
 	if is_dashing:
 		return  # Skip updating the animation if dashing
 	if Input.is_action_pressed("lookUp"):
-		animated_sprite.play("lookUp")
+		animated_sprite.play("lookingUp")
 	elif not is_on_floor():
-		animated_sprite.play("jump")
+		animated_sprite.play("jumping")
 	elif Input.is_action_pressed("crouch") and is_on_floor():
-		animated_sprite.play("crouch")
+		animated_sprite.play("crouching")
 	elif velocity.x != 0:
-		animated_sprite.play("run")
+		animated_sprite.play("running")
 	else:
-		animated_sprite.play("idle")
+		animated_sprite.play("idling")
 
 func update_marker_position():
 	if Input.is_action_pressed("lookUp"):

@@ -1,21 +1,23 @@
 [gd_scene load_steps=5 format=3 uid="uid://b53e7mlrhngq"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_u4py4"]
-[ext_resource type="Texture2D" uid="uid://ds0s3jr3pu8na" path="res://Assets/Models/EnemyMob/EnemyIdle.png" id="2_ftei7"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_leppg"]
+load_path = "res://.godot/imported/EnemyIdle.png-1c862926be48882c099b1608ec120168.ctex"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d7s3p"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_ftei7")
-}],
-"loop": true,
-"name": &"attack",
-"speed": 5.0
-}, {
 "frames": [],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_leppg")
+}],
+"loop": true,
+"name": &"walking",
 "speed": 5.0
 }]
 
@@ -27,7 +29,7 @@ script = ExtResource("1_u4py4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_d7s3p")
-animation = &"attack"
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(6.16125, 5.74482)

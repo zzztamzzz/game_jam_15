@@ -27,13 +27,13 @@ func _physics_process(_delta):
 		if global_position.distance_to(patrol_points[current_point]) < 10:
 			waiting = true
 			direction = Vector2.ZERO
-			animated_sprite.play("idle")
+			animated_sprite.play("idling")
 			await wait(wait_time)
 			current_point = (current_point + 1) % patrol_points.size()
 			set_direction()
 			waiting = false
 		else:
-			animated_sprite.play("walk")
+			animated_sprite.play("walking")
 
 func set_direction():
 	direction = (patrol_points[current_point] - global_position).normalized()
