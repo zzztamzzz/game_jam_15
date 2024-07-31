@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://fudelpco8kl2"]
+[gd_scene load_steps=46 format=3 uid="uid://fudelpco8kl2"]
 
 [ext_resource type="Script" path="res://Scripts/player/player_base_bullet.gd" id="1_cry7q"]
 [ext_resource type="Texture2D" uid="uid://dsuuo3jpya30b" path="res://Sprites/Models/MainCharacter/iDLE/crouched.png" id="2_xifi6"]
@@ -42,6 +42,7 @@
 [ext_resource type="Texture2D" uid="uid://cvtite2xsoetd" path="res://Sprites/Models/MainCharacter/Walk/2.png" id="40_446rb"]
 [ext_resource type="Texture2D" uid="uid://dar671nb4m6gf" path="res://Sprites/Models/MainCharacter/Walk/3.png" id="41_h4o8i"]
 [ext_resource type="Texture2D" uid="uid://djwsv44fhvl6x" path="res://Sprites/Models/MainCharacter/Walk/4.png" id="42_nlq3s"]
+[ext_resource type="AudioStream" uid="uid://cp0r7pghgqvsr" path="res://Assets/Audio/shoot.mp3" id="43_popbl"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_y6570"]
 animations = [{
@@ -250,3 +251,6 @@ limit_top = 0
 limit_bottom = 10
 limit_smoothed = true
 editor_draw_limits = true
+
+[node name="ShootSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("43_popbl")

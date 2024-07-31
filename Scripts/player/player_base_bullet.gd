@@ -21,6 +21,7 @@ var aim_direction = Vector2(1, 0)
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var marker = $Marker2D
+@onready var shooting_noise = $ShootSound
 
 @export var marker_offset_right = Vector2(10, -6)
 @export var marker_offset_left = Vector2(-10, -6)
@@ -102,6 +103,7 @@ func shoot():
 		get_parent().add_child(b_inst)
 		b_inst.global_position = marker.global_position
 		b_inst.direction = aim_direction
+		shooting_noise.play()
 		await get_tree().create_timer(shoot_cooldown).timeout
 		can_shoot = true
 

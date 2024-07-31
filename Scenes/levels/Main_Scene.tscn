@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://byd84jewx46dk"]
+[gd_scene load_steps=17 format=3 uid="uid://byd84jewx46dk"]
 
 [ext_resource type="Script" path="res://Scenes/levels/Main_Scene.gd" id="1_3cfv0"]
 [ext_resource type="PackedScene" uid="uid://fudelpco8kl2" path="res://Scenes/player/player.tscn" id="1_ew48u"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://ba5pbf053r6wl" path="res://Sprites/Models/ShadowOrb/Orbanim1.png" id="9_sikbu"]
 [ext_resource type="Texture2D" uid="uid://1hd4sn6b06qj" path="res://Sprites/Models/ShadowOrb/Orbanim2.png" id="10_61kyp"]
 [ext_resource type="Texture2D" uid="uid://ehdsctwyyk04" path="res://Sprites/Models/ShadowOrb/Orbanim3.png" id="11_pcabj"]
+[ext_resource type="AudioStream" uid="uid://b2sey12bcce80" path="res://Assets/Audio/5_s2.mp3" id="12_vvs0n"]
+[ext_resource type="Script" path="res://Scripts/ui/audio_looping.gd" id="13_tks2m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d6pei"]
 size = Vector2(20, 400)
@@ -136,5 +138,14 @@ frame_progress = 0.709493
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShadowOrb/Area2D"]
 scale = Vector2(1.98784, 2.00535)
 shape = SubResource("CircleShape2D_cyfvb")
+
+[node name="Level_Music" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(11124.4, 17)
+scale = Vector2(1.03308, 1)
+stream = ExtResource("12_vvs0n")
+volume_db = -10.0
+autoplay = true
+max_distance = 1e+12
+script = ExtResource("13_tks2m")
 
 [connection signal="area_entered" from="ShadowOrb/Area2D" to="." method="_on_area_2d_area_entered"]
