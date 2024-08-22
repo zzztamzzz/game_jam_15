@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://drgygc6w8hsb1"]
+
+[ext_resource type="Texture2D" uid="uid://6qb322r0ecx3" path="res://Assets/Sprites/Models/EnemyMob/MobMelee2anim.png" id="1_qkq68"]
+[ext_resource type="Texture2D" uid="uid://cigvvj25uipsy" path="res://Assets/Sprites/Models/EnemyMob/MobMelee1anim.png" id="2_2esf4"]
+[ext_resource type="Texture2D" uid="uid://cwm8juyqwauhk" path="res://Assets/Sprites/Models/EnemyMob/EnemyIdle.png" id="3_v67s2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ssall"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qkq68")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_2esf4")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_v67s2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r756i"]
+
+[node name="EnemyMob" type="RigidBody2D"]
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ssall")
+animation = &"attack"
+frame_progress = 0.514834
+
+[node name="CapsuleCollision2D" type="CollisionShape2D" parent="."]
+scale = Vector2(4.5, 4.5)
+shape = SubResource("CapsuleShape2D_r756i")

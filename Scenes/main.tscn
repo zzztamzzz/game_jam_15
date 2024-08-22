@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwlmbqboydgi7"]
+
+[ext_resource type="Texture2D" uid="uid://gkxqnwdf5bns" path="res://Assets/sample_background/Night City Background Image 2 Madfireon.png" id="1_4glf6"]
+[ext_resource type="PackedScene" uid="uid://drgygc6w8hsb1" path="res://Scenes/Enemy/Mob/enemy_mob.tscn" id="2_7up55"]
+[ext_resource type="PackedScene" uid="uid://dtqj4807h1iyq" path="res://Scenes/Player/player.tscn" id="3_ipkpk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tsj58"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ntc6i"]
+
+[node name="Main" type="Node2D"]
+position = Vector2(617, 340)
+metadata/_edit_group_ = true
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("1_4glf6")
+
+[node name="Ground" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(1, 189)
+scale = Vector2(292.486, 1.86892)
+shape = SubResource("RectangleShape2D_tsj58")
+
+[node name="BackWall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackWall"]
+position = Vector2(-628, 0)
+scale = Vector2(1, 50)
+shape = SubResource("RectangleShape2D_ntc6i")
+
+[node name="EnemyMob" parent="." instance=ExtResource("2_7up55")]
+position = Vector2(183, 89)
+
+[node name="Player" parent="." instance=ExtResource("3_ipkpk")]
+position = Vector2(-500, 93)

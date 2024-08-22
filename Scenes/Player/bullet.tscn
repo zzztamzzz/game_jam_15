@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ct6mhshrkfyrq"]
+
+[ext_resource type="Texture2D" uid="uid://cbjryg71057s2" path="res://Assets/Sprites/Models/Weapons/Guns/Bullet.png" id="1_74ejg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y72uk"]
+
+[node name="Bullet" type="Sprite2D"]
+texture = ExtResource("1_74ejg")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(0.659402, 0.252764)
+shape = SubResource("CapsuleShape2D_y72uk")
