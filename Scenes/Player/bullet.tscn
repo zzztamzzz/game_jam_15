@@ -1,14 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://ct6mhshrkfyrq"]
+[gd_scene load_steps=4 format=3 uid="uid://ct6mhshrkfyrq"]
 
 [ext_resource type="Texture2D" uid="uid://cbjryg71057s2" path="res://Assets/Sprites/Models/Weapons/Guns/Bullet.png" id="1_74ejg"]
+[ext_resource type="Script" path="res://Scripts/Player/bullet.gd" id="2_nf0om"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y72uk"]
 
 [node name="Bullet" type="Sprite2D"]
 texture = ExtResource("1_74ejg")
+script = ExtResource("2_nf0om")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 scale = Vector2(0.659402, 0.252764)
 shape = SubResource("CapsuleShape2D_y72uk")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
